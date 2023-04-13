@@ -145,7 +145,7 @@ getData <- function(XCMSet, XCMSmode){
         featdef <- XCMSet@groups
     }
     if(class(XCMSet)=="XCMSnExp"){
-        D1 <- as.data.frame(xcms:::featureValues(XCMSet,value=XCMSmode))
+        D1 <- as.data.frame(xcms:::featureValues(XCMSet,value=XCMSmode, missing = 0))
         rownames(D1) <- as.character(1:nrow(D1))
         classv <- as.factor(MSnbase::phenoData(XCMSet)[[2]])
         featdef <- as.data.frame(xcms:::featureDefinitions(XCMSet))
